@@ -1,6 +1,8 @@
+import './button.css'
+
 function Button (){
     return (
-        <button>CLICA AI ZÉ</button>
+        <button>Entrar</button>
     )
 }
 

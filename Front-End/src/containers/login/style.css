@@ -1,0 +1,33 @@
+#modalLogin {
+    border: solid 2px black;
+    border-radius: 10px;
+    height: 50vh;
+    width: 900px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#whiteModal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+}
+
+#blueModal {
+    background: linear-gradient(to bottom, rgb(10, 130, 222), white);
+    padding: 20px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+input {
+    background-color: rgb(218, 217, 217);
+    border-radius: 5px;
+    padding: 10px;
+}
