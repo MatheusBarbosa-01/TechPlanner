@@ -1,33 +1,47 @@
-#modalLogin {
-    border: solid 2px black;
-    border-radius: 10px;
-    height: 50vh;
-    width: 900px;
+#login{
+    height: 100vh;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
 }
 
-#whiteModal {
+#modalLogin {
+    display: flex;
+    justify-content: space-between; /* Isso alinha os modais um ao lado do outro */
+    gap: 0; /* Elimina o gap, se você não quiser espaço extra entre os modais */
+    width: 700px;
+    height: 50vh;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 0; /* Remove qualquer padding do container */
+    box-sizing: border-box; /* Garante que padding e border não afetem a largura e altura */
+}
+
+#blueModal, #whiteModal {
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
     text-align: center;
+    flex: 1; /* Faz com que ambos os modais ocupem 50% da largura */
+    box-sizing: border-box; /* Garante que padding e border não afetam a largura e altura */
 }
 
 #blueModal {
     background: linear-gradient(to bottom, rgb(10, 130, 222), white);
-    padding: 20px;
     color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 20px;
+}
+
+#whiteModal {
+    background: white;
+    padding: 20px;
 }
 
 input {
     background-color: rgb(218, 217, 217);
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
+    width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
 }

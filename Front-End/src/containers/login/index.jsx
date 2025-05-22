@@ -3,7 +3,8 @@ import './style.css'
 
 function Login (){
     return (
-        <div id="modalLogin">
+        <div id="login">
+ <div id="modalLogin">
             <div id="blueModal">
                 <p>Olá!</p><br/>
                 <p>Coloque as informações para entrar em sua conta</p>
@@ -15,6 +16,8 @@ function Login (){
                 <Button></Button>
             </div>
         </div>
+        </div>
+       
     )
 }
 
