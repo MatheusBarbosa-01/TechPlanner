@@ -1,0 +1,22 @@
+{
+    "Alunos": [
+        {
+            "nome": "Jorge Machado da Silva",
+            "matrícula": "123"
+        },
+        {
+            "nome": "Henrique da Silva Fonseca",
+            "matrícula": "789"
+        }
+    ],
+    "Professor": [
+        {
+            "nome": "Marcela Oliveira",
+            "matrícula": "963"
+        },
+        {
+            "nome": "Matheus Gonçalves",
+            "matrícula": "753"
+        }
+    ]
+}
