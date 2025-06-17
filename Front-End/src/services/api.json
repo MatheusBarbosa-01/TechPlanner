@@ -2,21 +2,25 @@
     "Alunos": [
         {
             "nome": "Jorge Machado da Silva",
-            "matrícula": "123"
+            "matrícula": "123",
+            "senha": "Jo123"
         },
         {
             "nome": "Henrique da Silva Fonseca",
-            "matrícula": "789"
+            "matrícula": "789",
+            "senha": "He789"
         }
     ],
     "Professor": [
         {
             "nome": "Marcela Oliveira",
-            "matrícula": "963"
+            "matrícula": "963",
+            "senha": "Ma963"
         },
         {
             "nome": "Matheus Gonçalves",
-            "matrícula": "753"
+            "matrícula": "753",
+            "senha": "Ma753"
         }
     ]
 }
