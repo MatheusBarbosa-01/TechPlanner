@@ -6,21 +6,23 @@ import { useRef } from 'react'
 function Login () {
   const navigate = useNavigate()
   const matriculaRef = useRef()
+  const senhaRef = useRef()
 
   function send(e) {
     e.preventDefault()
     const matricula = matriculaRef.current.value
+    const senha = senhaRef.current.value
     let encontrado = false
 
     api.Alunos.forEach(v => {
-      if (v.matrícula === matricula) {
+      if (v.matrícula === matricula & v.senha === senha ) {
         alert(v.nome)
         encontrado = true
       }
     })
 
     api.Professor.forEach(v => {
-      if (v.matrícula === matricula) {
+      if (v.matrícula === matricula & v.senha === senha ) {
         alert(v.nome)
         encontrado = true
       }
@@ -29,7 +31,7 @@ function Login () {
     if (encontrado) {
       navigate('/home') // redireciona para a home
     } else {
-      alert('Matrícula não encontrada')
+      alert('Matrícula ou senha não encontrada')
     }
   }
 
@@ -44,7 +46,7 @@ function Login () {
           <div id="whiteModal">
             <h1>ENTRE AQUI</h1>
             <input ref={matriculaRef} type="text" placeholder="Digite sua matrícula" />
-            <input type="password" placeholder="Digite sua senha" />
+            <input ref={senhaRef} type="password" placeholder="Digite sua senha" />
             <button type="submit">Entre</button>
           </div>
         </div>
