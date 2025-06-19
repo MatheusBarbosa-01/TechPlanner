@@ -66,12 +66,13 @@ function Calendario() {
         <div className="botoes">
           <button onClick={() => mudarMes(-1)}>{'<'}</button>
           <button onClick={() => mudarMes(1)}>{'>'}</button>
-          <button className="hoje" onClick={() => {
+          <button id="hoje" onClick={() => {
             setMesAtual(hoje.getMonth())
             setAnoAtual(hoje.getFullYear())
           }}>Hoje
           </button>
         </div>
+        
          <h2 className="titulo-mes">{meses[mesAtual]} {anoAtual}</h2>
       </div>
 

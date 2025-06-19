@@ -43,16 +43,18 @@ body {
   background-color: #096cb3;
 }
 
-.hoje {
+#hoje {
   background-color: #28a745;
+  border-radius: 25px;
+  margin-left: 20px;
 }
 
-.hoje:hover {
+#hoje:hover {
   background-color: #218838;
 }
 
 .titulo-mes {
-  font-size: 1.8rem;
+  font-size: 24px;
   font-weight: bold;
   margin: 0;
 }
