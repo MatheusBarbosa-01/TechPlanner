@@ -63,9 +63,16 @@ function Calendario() {
   return (
     <div className="container">
       <div className="cabecalho">
-        <button onClick={() => mudarMes(-1)}>{'<'}</button>
-        <h2>{meses[mesAtual]} {anoAtual}</h2>
-        <button onClick={() => mudarMes(1)}>{'>'}</button>
+        <div className="botoes">
+          <button onClick={() => mudarMes(-1)}>{'<'}</button>
+          <button onClick={() => mudarMes(1)}>{'>'}</button>
+          <button className="hoje" onClick={() => {
+            setMesAtual(hoje.getMonth())
+            setAnoAtual(hoje.getFullYear())
+          }}>Hoje
+          </button>
+        </div>
+         <h2 className="titulo-mes">{meses[mesAtual]} {anoAtual}</h2>
       </div>
 
       <div className="diasSemana">

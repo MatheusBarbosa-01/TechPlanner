@@ -19,6 +19,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.botoes {
+  display: flex;
+  gap: 8px;
 }
 
 .cabecalho button {
@@ -28,13 +36,24 @@ body {
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .cabecalho button:hover {
   background-color: #096cb3;
 }
 
-.cabecalho h2 {
+.hoje {
+  background-color: #28a745;
+}
+
+.hoje:hover {
+  background-color: #218838;
+}
+
+.titulo-mes {
+  font-size: 1.8rem;
+  font-weight: bold;
   margin: 0;
 }
 
