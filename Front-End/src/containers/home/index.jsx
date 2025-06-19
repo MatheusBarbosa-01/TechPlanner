@@ -1,10 +1,8 @@
-import Button from "../../components/button"
-
+import '../home/style.css'
 function Home (){
     return (
         <div>
-            ola mundo
-            <Button></Button>
+            <p>Teste de home</p>
         </div>
     )
 }

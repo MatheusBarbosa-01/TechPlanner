@@ -1,13 +1,20 @@
-import { Provider } from "./components/ui/provider"
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Home from './containers/home/index'
-import Login from "./containers/login/index"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Provider } from './components/ui/provider'
+
+import Login from './containers/login'
+import Home from './containers/home'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider>
-      <Login />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
-  </StrictMode>,
+  </StrictMode>
 )
