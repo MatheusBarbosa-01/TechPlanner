@@ -6,17 +6,17 @@ import api from '../../services/api.json'
 function Login (){
     const matricula = document.querySelector('#matricula')
 
-    async function send(e){
+    function send(e){
         e.preventDefault()
 
         api.Alunos.forEach( v => {
             if(v.matrícula === matricula.value){
-                alert("aluno")
+                alert(v.nome)
             }
         })
         api.Professor.forEach( v => {
             if(v.matrícula === matricula.value){
-                alert("professor")
+                alert(v.nome)
             }
         })
     }
