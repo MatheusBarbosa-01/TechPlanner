@@ -1,12 +1,13 @@
 import { useNavigate } from 'react-router-dom'
 import '../login/style.css'
 import api from '../../services/api.json'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 function Login () {
   const navigate = useNavigate()
   const matriculaRef = useRef()
   const senhaRef = useRef()
+  const [isLoading, setIsLoading] = useState(false)
 
   function send(e) {
     e.preventDefault()
@@ -14,20 +15,28 @@ function Login () {
     const matriculaDigitada = matriculaRef.current.value
     const senhaDigitada = senhaRef.current.value
 
+    setIsLoading(true)
+
     const usuario = [...api.Alunos, ...api.Professor].find(v => v.matrícula === matriculaDigitada)
 
     if (!usuario) {
       alert("Matrícula incorreta")
+      setIsLoading(false)
       return
     }
 
     if (usuario.senha !== senhaDigitada) {
       alert("Senha incorreta")
+      setIsLoading(false)
       return
     }
 
-    alert(`Bem-vindo, ${usuario.nome}`)
-    navigate('/home')
+    setTimeout(() => {
+      alert(`Bem-vindo, ${usuario.nome}`)
+      navigate('/home', { state: { userName: usuario.nome } })
+      setIsLoading(false)
+    }, 1500)
+
   }
 
   return (
@@ -42,7 +51,7 @@ function Login () {
             <h1>ENTRE AQUI</h1>
             <input ref={matriculaRef} type="text" placeholder="Digite sua matrícula" />
             <input ref={senhaRef} type="password" placeholder="Digite sua senha" />
-            <button type="submit">Entre</button>
+            <button id='btnEntrar' type="submit" disabled={isLoading}>{isLoading ? 'Entrando...' : 'Entrar'}</button>
           </div>
         </div>
       </form>

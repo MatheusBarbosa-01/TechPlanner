@@ -2,3 +2,34 @@
     background-color: #FFF;
     color: black;
 }
+
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px 0px 0px 20px;
+    font-size: 30px;
+}
+
+p{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 20px 0px 0px 20px;
+}
+
+#btnIncluirEvento, #btnAbrirCalendario{
+    background-color: rgba(214, 214, 214, 0.829);
+    border-radius: 5px;
+    padding: 7px;
+    margin:10px 0px 0px 20px;
+    border: 2px solid;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#btnIncluirEvento:hover{
+    transform: scale(1.05);
+    transition: 100ms ease-in-out;
+}
+
+#btnAbrirCalendario:hover{
+    transform: scale(1.05);
+    transition: 100ms ease-in-out;
+}

@@ -47,7 +47,7 @@ input {
     width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
 }
 
-button {
+#btnEntrar {
     background-color: gold;
     border: solid rgb(0, 0, 0);
     border-radius: 10px;
@@ -56,7 +56,7 @@ button {
     cursor: pointer;
 }
 
-button:hover{
+#btnEntrar:hover{
     transform: scale(1.1);
     transition: 1s;
 }
