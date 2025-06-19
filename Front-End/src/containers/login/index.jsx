@@ -10,29 +10,24 @@ function Login () {
 
   function send(e) {
     e.preventDefault()
-    const matricula = matriculaRef.current.value
-    const senha = senhaRef.current.value
-    let encontrado = false
 
-    api.Alunos.forEach(v => {
-      if (v.matrícula === matricula & v.senha === senha ) {
-        alert(v.nome)
-        encontrado = true
-      }
-    })
+    const matriculaDigitada = matriculaRef.current.value
+    const senhaDigitada = senhaRef.current.value
 
-    api.Professor.forEach(v => {
-      if (v.matrícula === matricula & v.senha === senha ) {
-        alert(v.nome)
-        encontrado = true
-      }
-    })
+    const usuario = [...api.Alunos, ...api.Professor].find(v => v.matrícula === matriculaDigitada)
 
-    if (encontrado) {
-      navigate('/home') // redireciona para a home
-    } else {
-      alert('Matrícula ou senha não encontrada')
+    if (!usuario) {
+      alert("Matrícula incorreta")
+      return
     }
+
+    if (usuario.senha !== senhaDigitada) {
+      alert("Senha incorreta")
+      return
+    }
+
+    alert(`Bem-vindo, ${usuario.nome}`)
+    navigate('/home')
   }
 
   return (
