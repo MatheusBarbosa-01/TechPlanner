@@ -1,6 +1,5 @@
 import Button from "../../components/button";
 import './style.css'
-import './index'
 import api from '../../services/api.json'
 
 function Login (){
