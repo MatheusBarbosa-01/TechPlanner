@@ -1,4 +1,3 @@
-import Button from "../../components/button";
 import './style.css'
 import api from '../../services/api.json'
 
@@ -32,7 +31,7 @@ function Login (){
                         <h1>ENTRE AQUI</h1>
                         <input id="matricula" type="text" placeholder="Digite sua matrícula"/>
                         <input id="senha" type="password" placeholder="Digite sua senha"/>
-                        <Button></Button>
+                        <button type="submit">Entre</button>
                     </div>
                 </div>
             </form>

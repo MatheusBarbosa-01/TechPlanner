@@ -45,3 +45,11 @@ input {
     margin-bottom: 10px;
     width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
 }
+
+button {
+    background-color: gold;
+    border: solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 1px 8px;
+    padding: 5px 10px;
+}
