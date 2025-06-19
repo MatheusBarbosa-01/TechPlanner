@@ -1,8 +1,22 @@
-#cadastrarEvento {
+body {
+  background-color: white;
+  color: rgb(50, 50, 50);
+}
+
+.container-eventos {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.conteudo-formulario {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  background-color: #FFF;
+  padding: 20px;
+  height: 120vh;
 }
 
 form {
