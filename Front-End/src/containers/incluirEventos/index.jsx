@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './style.css'
+import event from '../../services/eventos.json'
 
 function CadastrarEvento() {
   const [titulo, setTitulo] = useState('')
@@ -20,7 +21,9 @@ function CadastrarEvento() {
       data
     }
 
-    console.log('Evento cadastrado:', novoEvento)
+    event.eventos.push(novoEvento)
+
+    console.log('Evento cadastrado:', novoEvento, event.eventos)
     alert('Evento cadastrado com sucesso!')
 
     setTitulo('')

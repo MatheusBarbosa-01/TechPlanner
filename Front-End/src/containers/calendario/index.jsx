@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './style.css'
+import event from '../../services/eventos.json'
 
 function Calendario() {
   const hoje = new Date()
@@ -7,9 +8,9 @@ function Calendario() {
   const [anoAtual, setAnoAtual] = useState(hoje.getFullYear())
 
   // Simulação dos eventos cadastrados
-  const [eventos] = useState([
-    
-  ])
+  const [eventos] = useState(
+    event.eventos
+  )
 
   const meses = [
     'Janeiro', 'Fevereiro', 'Março', 'Abril',
