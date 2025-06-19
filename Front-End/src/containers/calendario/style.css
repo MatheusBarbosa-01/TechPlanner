@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho button {
+  background-color: #0a82de;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cabecalho button:hover {
+  background-color: #096cb3;
+}
+
+.cabecalho h2 {
+  margin: 0;
+}
+
+.diasSemana {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.dias {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.dia {
+  min-height: 120px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+}
+
+.dia:hover {
+  background-color: #e0f0ff;
+  cursor: pointer;
+}
+
+.numeroDia {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.eventos {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.evento {
+  background-color: #0a82de;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-bottom: 2px;
+  word-break: break-word;
+}
+
+.vazio {
+  min-height: 120px;
+}
