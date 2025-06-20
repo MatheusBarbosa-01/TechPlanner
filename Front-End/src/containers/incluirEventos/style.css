@@ -57,7 +57,7 @@ form button {
   padding: 5px 10px;
   background-color: gold;
   color: black;
-  border: solid rgb(0, 0, 0);
+  border: solid 1px rgb(0, 0, 0);
   border-radius: 10px;
   box-shadow: 0px 1px 8px;
   cursor: pointer;
@@ -66,4 +66,12 @@ form button {
 form button:hover {
     transform: scale(1.1);
     transition: 1s;
+}
+
+#inputDescricao, #inputDate, #inputTitulo{
+  background-color: #cccccc81;
+}
+
+#titulo{
+  font-size: 20px ;
 }

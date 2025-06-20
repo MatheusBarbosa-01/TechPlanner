@@ -41,7 +41,7 @@ function Login () {
 
   return (
     <div id="login">
-      <form onSubmit={send}>
+      <form id='formLogin' onSubmit={send}>
         <div id="modalLogin">
           <div id="blueModal">
             <p>Olá!</p><br />
@@ -49,8 +49,8 @@ function Login () {
           </div>
           <div id="whiteModal">
             <h1>ENTRE AQUI</h1>
-            <input ref={matriculaRef} type="text" placeholder="Digite sua matrícula" />
-            <input ref={senhaRef} type="password" placeholder="Digite sua senha" />
+            <input ref={matriculaRef} type="text" placeholder="Digite sua matrícula" autoFocus required />
+            <input ref={senhaRef} type="password" placeholder="Digite sua senha" required/>
             <button id='btnEntrar' type="submit" disabled={isLoading}>{isLoading ? 'Entrando...' : 'Entrar'}</button>
           </div>
         </div>

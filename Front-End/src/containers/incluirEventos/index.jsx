@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './style.css'
 import event from '../../services/eventos.json'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { FiHome, FiCalendar, FiPlusSquare } from 'react-icons/fi'
 
 function CadastrarEvento() {
@@ -59,7 +59,7 @@ function CadastrarEvento() {
                   <FiCalendar className="icone-navegacao" />
                   <span>Calendário</span>
               </button>
-              <button className="botao-navegacao ativo" onClick={() => navegar('/eventos')}>
+              <button className="botao-navegacao ativo" onClick={() => navigate('/eventos')}>
                   <FiPlusSquare className="icone-navegacao" />
                   <span>Inserir Evento</span>
               </button>
@@ -68,7 +68,7 @@ function CadastrarEvento() {
 
       <div className="conteudo-formulario">
         <form onSubmit={handleSubmit}>
-          <h1>Cadastrar Evento</h1>
+          <h1 id='titulo'>Cadastrar Evento</h1>
 
           <label>Título:</label>
           <input
@@ -80,6 +80,7 @@ function CadastrarEvento() {
 
           <label>Descrição:</label>
           <textarea
+            id='inputDescricao'
             placeholder="Digite a descrição do evento"
             value={descricao}
             onChange={(e) => setDescricao(e.target.value)}
@@ -87,12 +88,13 @@ function CadastrarEvento() {
 
           <label>Data:</label>
           <input
+            id="inputDate"
             type="date"
             value={data}
             onChange={(e) => setData(e.target.value)}
           />
 
-          <button type="submit">Cadastrar Evento</button>
+          <button type="submit">Cadastrar</button>
         </form>
       </div>
     </div>
