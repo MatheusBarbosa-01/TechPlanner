@@ -1,0 +1,5 @@
+Assets => Guardar imagens, logos, etc
+Components => Guardar elementos que são usados diversas vezes ao longo do código. É usado para fins de reutilização
+Services => Serve para chamadas de API
+Styles => Serve para definição de estilos css globais, ou seja, estilos que serão usados em todo o projeto. Também
+          vai ser usada para fins de reutilização

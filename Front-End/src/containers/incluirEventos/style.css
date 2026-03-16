@@ -1,0 +1,77 @@
+body {
+  background-color: white;
+  color: rgb(50, 50, 50);
+}
+
+.container-eventos {
+  display: flex;
+  height: 100vh;
+}
+
+.conteudo-formulario {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  padding: 20px;
+  height: 120vh;
+}
+
+form {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form textarea {
+  resize: none;
+  height: 80px;
+}
+
+form button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 5px 10px;
+  background-color: gold;
+  color: black;
+  border: solid 1px rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 0px 1px 8px;
+  cursor: pointer;
+}
+
+form button:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+#inputDescricao, #inputDate, #inputTitulo{
+  background-color: #cccccc81;
+}
+
+#titulo{
+  font-size: 20px ;
+}

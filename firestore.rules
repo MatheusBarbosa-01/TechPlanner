@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helpers ─────────────────────────────────────────────────
+    function isAuthed() {
+      return request.auth != null;
+    }
+
+    // Lê o role do usuário no Firestore (requer 1 leitura extra)
+    // Retorna string vazia se o documento ainda não existe (ex: logo após o cadastro)
+    function myRole() {
+      let userDoc = get(/databases/$(database)/documents/users/$(request.auth.uid));
+      return userDoc == null ? '' : userDoc.data.get('role', '');
+    }
+
+    function isProfessorOrAdmin() {
+      return isAuthed() && myRole() in ['professor', 'administrador'];
+    }
+
+    function isAdmin() {
+      return isAuthed() && myRole() == 'administrador';
+    }
+
+    // ── Usuários ─────────────────────────────────────────────────
+    // Leitura: qualquer usuário autenticado pode ver perfis
+    // Criação: só pode criar o próprio perfil
+    // Atualização: próprio perfil ou admin
+    // Exclusão: só admin
+    match /users/{userId} {
+      allow read: if isAuthed();
+      allow create: if isAuthed() && request.auth.uid == userId;
+      allow update: if isAuthed() && (request.auth.uid == userId || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // ── Turmas ───────────────────────────────────────────────────
+    match /classes/{classId} {
+      allow read: if isAuthed();
+      allow write: if isProfessorOrAdmin();
+    }
+
+    // ── Atividades ───────────────────────────────────────────────
+    match /activities/{activityId} {
+      allow read: if isAuthed();
+      allow write: if isProfessorOrAdmin();
+    }
+
+    // ── Notificações ─────────────────────────────────────────────
+    // Cada usuário só vê e gerencia as próprias notificações
+    // A regra de read cobre tanto document get quanto list/query
+    match /notifications/{notifId} {
+      allow read:   if isAuthed() && (
+        // Leitura direta de documento
+        resource == null || resource.data.userId == request.auth.uid
+      );
+      allow update: if isAuthed() && resource.data.userId == request.auth.uid;
+      // Qualquer autenticado pode criar (professor notifica aluno, sistema notifica)
+      allow create: if isAuthed();
+      allow delete: if isAuthed() && resource.data.userId == request.auth.uid;
+    }
+
+    // ── Cursos ───────────────────────────────────────────────────
+    match /courses/{courseId} {
+      allow read: if isAuthed();
+      allow write: if isProfessorOrAdmin();
+    }
+
+    // ── Submissões ───────────────────────────────────────────────
+    // Alunos veem as próprias; professores/admins veem todas
+    match /submissions/{submissionId} {
+      allow read: if isAuthed() && (
+        resource.data.studentId == request.auth.uid || isProfessorOrAdmin()
+      );
+      allow create: if isAuthed();
+      allow update: if isAuthed() && (
+        resource.data.studentId == request.auth.uid || isProfessorOrAdmin()
+      );
+      allow delete: if isAdmin();
+    }
+
+    // ── Pedidos de entrada em turma ──────────────────────────────
+    match /joinRequests/{requestId} {
+      allow read: if isAuthed() && (
+        resource.data.studentId == request.auth.uid || isProfessorOrAdmin()
+      );
+      allow create: if isAuthed();
+      allow update: if isProfessorOrAdmin();
+      allow delete: if isAuthed() && resource.data.studentId == request.auth.uid;
+    }
+  }
+}
