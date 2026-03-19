@@ -1,0 +1,196 @@
+/* ── CreateActivity — new styles ── */
+
+.create-act-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+.tipo-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tipo-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.tipo-btn:hover { border-color: var(--primary); color: var(--primary); }
+.tipo-btn.selected { font-weight: 600; }
+
+.form-control-textarea { resize: vertical; min-height: 120px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.create-act-btns {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.create-act-preview { position: sticky; top: 90px; }
+
+.required { color: var(--error); margin-left: 2px; }
+
+.alert {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.alert-error   { background: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+.alert-success { background: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; }
+
+@media (max-width: 900px) {
+  .create-act-grid { grid-template-columns: 1fr; }
+  .create-act-preview { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ── Criar / Editar Atividade ── */
+
+.container-criar-atividade {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.conteudo-form-atividade {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 36px;
+  overflow-y: auto;
+}
+
+.card-form-atividade {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 680px;
+}
+
+/* ── Cabeçalho do formulário ── */
+.form-header {
+  margin-bottom: 24px;
+}
+
+.form-header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-header p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── Linha dupla ── */
+.linha-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* ── Botões do formulário ── */
+.botoes-form {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btn-cancelar {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancelar:hover:not(:disabled) {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.btn-salvar {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-salvar:hover:not(:disabled) {
+  background: #1D4ED8;
+}
+
+.btn-salvar:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-salvar:disabled,
+.btn-cancelar:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Responsividade ── */
+@media (max-width: 768px) {
+  .conteudo-form-atividade {
+    padding: 20px 16px 80px;
+  }
+
+  .card-form-atividade {
+    padding: 24px 20px;
+  }
+
+  .linha-dupla {
+    grid-template-columns: 1fr;
+  }
+
+  .botoes-form {
+    flex-direction: column-reverse;
+  }
+
+  .btn-cancelar,
+  .btn-salvar {
+    width: 100%;
+    text-align: center;
+  }
+}
