@@ -39,7 +39,7 @@ export default function Register() {
   const [loading,  setLoading]  = useState(false)
 
   useEffect(() => {
-    getClasses().then(setClasses).catch(() => {})
+    getClasses().then(setClasses).catch()
   }, [])
 
   function handleChange(e) {
